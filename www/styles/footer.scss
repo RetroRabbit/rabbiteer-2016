@@ -1,6 +1,8 @@
 @import './vars.scss';
 
-footer{
+footer .push{
   position:absolute;
    bottom:0;
+   height:auto !important;
+   height: 100%;
 }
