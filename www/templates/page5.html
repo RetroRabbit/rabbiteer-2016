@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../lib/components-font-awesome/css/font-awesome.min.css" />
+
+<form name="chatrooms">
+  <div class="styled-select">
+    <table ng-if="isLoggedIn()">
+      <tr>
+        <td>
+          <label for="repeatSelect"><h1 class="basicHeader">Chat Room:</h1></label>
+        </td>
+        <td>
+          <select ng-init="currentroom = rooms[0]" name="repeatSelect" id="repeatSelect" ng-model="currentroom" ng-change="changeChatRoom(currentroom)"
+            ng-options="opt.url for opt in rooms">
+             <option style="display:none" value="">Select another chat room</option>
+              </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>
+<!-- <div ng-if="!isLoggedIn()">
+  <a class="btn btn-block btn-social btn-github" ng-click="signInWithGitHub()">
+    <span class="fa fa-github"></span> Sign in with GitHub
+  </a>
+</div> -->
+<div ng-if="!isLoggedIn()">
+  <a class="btn btn-block btn-social btn-github" ng-click="signInAnonymously()">
+    <span class="fa fa-sign"></span> Sign in Anonymously
+  </a>
+</div>
+<div class="chat-container" ng-if="isLoggedIn()">
+  <table class="table">
+    <tr ng-repeat="msg in messages | orderBy: '-mgs.key'">
+      <td>
+        <div class=" bubble" ng-class="{true: 'bubble bubble--alt', false: 'bubble'}[msg.current]" <P style="color: black">
+          <b>{{msg.nick}}</b><br> {{msg.message}}
+          </P>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="text" ng-model="newMessage.message" ng-keydown="sendMessageOnEnter($event,newMessage)" class="span6 textbox"
+          placeholder="Type message..." /></td>
+      <td><button ng-click="sendMessage(newMessage)" class="send"><i class="fa fa-paper-plane"></i></button></td>
+    </tr>
+    <tr>
+      <td><input type="text" class="textbox" placeholder="Change Displayname" ng-model="nick" ng-keydown="changeDisplayNameOnEnter($event,nick)"></td>
+      <td><button class="fa fa-pencil displayname" ng-click="changeDisplayName(nick)" /></td>
+    </tr>
+    <tr>
+      <td>
+        <a class="btn btn-block" ng-click="signOut()">
+          <span class="fa fa-sign-out"></span> Sign Out
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

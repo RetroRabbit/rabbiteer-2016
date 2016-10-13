@@ -32,6 +32,12 @@ module.exports = function ($stateProvider, $urlRouterProvider, $locationProvider
     templateUrl: 'templates/page4.html',
     controller: require('./page4.controller')
   });
+
+  $stateProvider.state('Page5', {
+    url: '/page5',
+    templateUrl: 'templates/page5.html',
+    controller: require('./page5.controller')
+  });
   
   $stateProvider.state('devtools', {
     url: '/devtools',

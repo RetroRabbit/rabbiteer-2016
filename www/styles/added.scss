@@ -641,3 +641,146 @@ a.nav-order-btn, a.nav-order-btn:hover {
 .footer-bottom p {
     font-size: 14px;
 }
+
+input[type=text].textbox  { 
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #abff4f;
+    color: white;
+    width: 200px;
+    height: 20px;
+}
+
+input[type=text].textbox:focus{
+    outline-color: #abff4f;
+    border-color: #abff4f;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+}
+
+button.textbox { 
+    height: 22px;
+    width: 24px;
+    border: none;
+    border-radius: 0px;
+}
+
+button.textbox:focus {
+    outline: #abff4f auto 5px;
+    outline-color: #abff4f;
+    outline-style: auto;
+    outline-width: 5px;
+    border-color: #abff4f;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+}
+
+.styled-select select {
+   background: rgba(0,0,0,.075);
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   color:white;
+    outline-color: #abff4f;
+    border-color: #abff4f;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(171, 255, 79, 0.6);
+   }
+
+.styled-select select option span {
+    color:white;
+    background: #abff4f;
+   }
+
+.styled-select select option {
+    color:black;
+    background: white;
+   }
+
+  /* Bit of normalisation */
+  
+  .chat-container {
+    padding: 40px 20px;
+    margin: 0 auto;
+    width: 400px;
+  }
+  /* .bubble */
+  
+  .bubble {
+    background-image: linear-gradient(bottom, rgb(241,241,241) 25%, rgb(171,171,171) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(241,241,241) 25%, rgb(171,171,171) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(241,241,241) 25%, rgb(171,171,171) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(241,241,241) 25%, rgb(171,171,171) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(241,241,241) 25%, rgb(171,171,171) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.25, rgb(241,241,241)), color-stop(1, rgb(171,171,171)));
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    /* vendor rules */
+    border-radius: 20px;
+    /* vendor rules */
+    box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* vendor rules */
+    box-sizing: border-box;
+    clear: both;
+    float: left;
+    margin-bottom: 20px;
+    padding: 8px 30px;
+    position: relative;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+    width: auto;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .bubble:before,
+  .bubble:after {
+    border-radius: 20px / 10px;
+    content: ' ';
+    display: block;
+    position: absolute;
+  }
+  
+  .bubble:before {
+    border: 10px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: -7px;
+    z-index: -2;
+  }
+  
+  .bubble:after {
+    border: 8px solid transparent;
+    border-bottom-color: rgb(241,241,241);
+    bottom: 1px;
+    left: -5px;
+  }
+  
+  .bubble--alt {
+    background-image: linear-gradient(bottom, rgb(172, 228, 75) 25%, rgb(122, 205, 71) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(172, 228, 75) 25%, rgb(122, 205, 71) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(172, 228, 75) 25%, rgb(122, 205, 71) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(172, 228, 75) 25%, rgb(122, 205, 71) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(172, 228, 75) 25%, rgb(122, 205, 71) 100%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.25, rgb(172, 228, 75)), color-stop(1, rgb(122, 205, 71)));
+    float: right;
+  }
+  
+  .bubble--alt:before {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px / 10px;
+    left: auto;
+    right: -7px;
+  }
+  
+  .bubble--alt:after {
+    border-bottom-color: #ace44b;
+    border-radius: 20px / 10px;
+    left: auto;
+    right: -5px;
+  }

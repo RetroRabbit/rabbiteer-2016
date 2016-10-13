@@ -7,10 +7,16 @@
 @import './ticTacToe.scss';
 @import './added.scss';
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding:0;
     margin:0;
+    margin-bottom: 60px;
     background-color: #212121;
     color:white;
 }
@@ -22,6 +28,4 @@ a {
 [ng-cloak] {
     display:none !important;
 }
-
-
 
