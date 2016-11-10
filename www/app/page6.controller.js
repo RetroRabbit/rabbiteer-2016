@@ -25,7 +25,7 @@ module.exports = function ($scope) {
   };
   var joysticks = {
     static: {
-      zone: s('.zone.static'),
+      zone: document.getElementById('zone_joystick'),
       mode: 'static',
       position: {
         left: '50%',
@@ -148,6 +148,10 @@ module.exports = function ($scope) {
   }
 
   function createNipple(evt) {
+    var options = {
+        zone: document.getElementById('zone_joystick'),
+
+    };
     var type = typeof evt === 'string' ?
       evt : evt.target.getAttribute('data-type');
     if (joystick) {
@@ -156,7 +160,7 @@ module.exports = function ($scope) {
     s('.highlight.' + type).className += ' active';
     s('.button.' + type).className += ' active';
     s('.zone.' + type).className += ' active';
-    joystick = nipplejs.create(joysticks[type]);
+    joystick = nipplejs.create(options);
     bindNipple();
   }
   createNipple('dynamic');

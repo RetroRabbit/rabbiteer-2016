@@ -7,8 +7,12 @@
   <div data-type="dynamic" class="active button dynamic"></div>
 </div>
 
-<div style="height: 100px;">
-<div id="zone_joystick" >
+<div>
+  <input type="text" ng-model="robot.name" class="span6 textbox"
+         placeholder="Type robot id..." >
+</div>
+<div style='clear:both;'></div>
+<div id="zone_joystick" style="position:relative;" >
   <div id="debug">
     <ul>
       <li class="position">
@@ -39,8 +43,7 @@
     </ul>
     <div class="dump"></div>
   </div>
+
   <div class="zone dynamic active"></div>
-</div>
-<input type="text" ng-model="robot.name" class="span6 textbox"
-         placeholder="Type robot id..." >
+
 </div>
