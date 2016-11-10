@@ -39,10 +39,11 @@ module.exports = function ($stateProvider, $urlRouterProvider, $locationProvider
     controller: require('./page5.controller')
   });
   
-  $stateProvider.state('devtools', {
-    url: '/devtools',
-    templateUrl: 'templates/devtools.html',
-    controller: require('./devtools.controller')
+  $stateProvider.state('Page6', {
+    url: '/page6',
+    templateUrl: 'templates/page6.html',
+    controller: require('./page6.controller')
   });
+
   $urlRouterProvider.when('', '/');
 }

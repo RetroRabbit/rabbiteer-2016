@@ -96,12 +96,13 @@
   "dependencies": {
     "babel-core": "^6.16.0",
     "body-parser": "^1.15.2",
+    "bootstrap-social": "^5.0.0",
     "compass": "^0.1.1",
     "express": "^4.14.0",
     "express-spa-router": "0.0.8",
     "firebase": "^3.4.1",
-    "bootstrap-social": "^5.0.0",
     "morgan": "^1.7.0",
+    "nipplejs": "^0.6.7",
     "opn": "^4.0.2"
   }
 }
