@@ -23,17 +23,6 @@ module.exports = function ($scope) {
   var sId = function (sel) {
     return document.getElementById(sel);
   };
-  var joysticks = {
-    static: {
-      zone: document.getElementById('zone_joystick'),
-      mode: 'static',
-      position: {
-        left: '50%',
-        top: '50%'
-      },
-      color: 'red'
-    }
-  };
   var joystick;
 
   // Get debug elements and map them
@@ -149,8 +138,7 @@ module.exports = function ($scope) {
 
   function createNipple(evt) {
     var options = {
-        zone: document.getElementById('zone_joystick'),
-
+      zone: document.getElementById('zone_joystick'),
     };
     var type = typeof evt === 'string' ?
       evt : evt.target.getAttribute('data-type');
