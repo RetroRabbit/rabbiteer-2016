@@ -1,6 +1,22 @@
-
+const firebase = require("firebase");
 const nipplejs = require("nipplejs");
-module.exports = function () {
+module.exports = function ($scope) {
+
+//Firebase Config used to connect to your firebase app (cant download this under Firebase Project Settings)
+  var config = {
+    apiKey: "AIzaSyBnRqWBvsbR-5bnvaRAZZbJc_DQK2JzxHo",
+    authDomain: "rabbiteer-bbb91.firebaseapp.com",
+    databaseURL: "https://rabbiteer-bbb91.firebaseio.com",
+    storageBucket: "rabbiteer-bbb91.appspot.com"
+  };
+
+  //Provider used to log into firebase (Can enable multipe providers under the Firebase Auth Section)
+  //var providerGitHub = new firebase.auth.GithubAuthProvider();
+
+  //Check if App is initialized if not initialize 
+  if (firebase.apps.length == 0)
+    firebase.initializeApp(config);
+
   var s = function (sel) {
     return document.querySelector(sel);
   };
@@ -71,23 +87,64 @@ module.exports = function () {
       parseObj(obj, els);
     }, 0);
   }
-
+  $scope.robot = {}
+  $scope.robot.name = 'Droid-D3'
   function bindNipple() {
-    joystick.on('start end', function (evt, data) {
+    joystick.on('start', function (evt, data) {
+      firebase.database().ref('/robot/')
+      .child($scope.robot.name)
+      .set({
+        "angle": 0,
+        "moveX": 542,
+        "moveY": 534,
+        "scaledX": 0,
+        "scaledY":0,
+        "online": true
+      }, function (e) {
+        if (e != null)
+          alert(e.message);
+      });
+      dump(evt.type);
+      debug(data);
+    }).on('end', function (evt, data) {
+      firebase.database().ref('/robot/')
+      .child($scope.robot.name)
+      .set({
+        "angle": 0,
+        "moveX": 542,
+        "moveY": 534,
+        "scaledX": 0,
+        "scaledY":0,
+        "online": false
+      }, function (e) {
+        if (e != null)
+          alert(e.message);
+      });
       dump(evt.type);
       debug(data);
     }).on('move', function (evt, data) {
-      debug(data);
-    }).on('dir:up plain:up dir:left plain:left dir:down ' +
-    'plain:down dir:right plain:right',
-      function (evt) {
-        dump(evt.type);
-      }
-      ).on('pressure', function (evt, data) {
-        debug({
-          pressure: data
-        });
+      firebase.database().ref('/robot/')
+      .child($scope.robot.name)
+      .set({
+        "angle": 360 - data.angle.degree,
+        "moveX": 542,
+        "moveY": 534,
+        "scaledX":data.distance/50.0,
+        "scaledY":data.distance/50.0,
+        "online": true
+      }, function (e) {
+        if (e != null)
+          alert(e.message);
       });
+      dump(evt.type);
+      debug(data);
+    }).on('dir:up plain:up dir:left plain:left dir:down plain:down dir:right plain:right', function (evt) {                                                                                             
+      dump(evt.type);                                                                                            
+    }).on('pressure', function (evt, data) {                                                                      
+      debug({                                                                                                    
+        pressure: data                                                                                           
+      })
+    });
   }
 
   function createNipple(evt) {
