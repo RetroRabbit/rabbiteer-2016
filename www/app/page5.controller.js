@@ -101,6 +101,26 @@ module.exports = function ($scope) {
 
       });
 
+      //Check for changes on the messages
+      messagesdbRef.on('child_changed', function (data) {
+        let message = data.val()
+
+        //Update message info to messages array
+        $scope.messages.filter(function (e) { return e.id == data.key; })[0].message = message.message;
+        $scope.$apply();
+      });
+      //Check for deleted messages
+      messagesdbRef.on('child_removed', function (data) {
+        //Update message info to messages array
+        for (var b = 0; b < $scope.messages.length; b++) {
+          if ($scope.messages[b].id == data.key) {
+            $scope.messages.splice(b, 1);
+            $scope.$apply();
+            break;
+          }
+        }
+      });
+
     }
   });
 
